@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Callback?
+        // Là hàm (function) được truyền qua đối số
+        // Khi gọi qua hàm khác
+
+        // 1. Là hàm 
+        // 2. Được truyền qua đối số
+        
+        var stringtoArray = (courses) => {
+            console.log(courses.split(','));
+        }
+        var getContentLength = (content) => {
+            console.log(content.length)
+        }
+        var getUpperCaseName = (name) => {
+            console.log(name.toUpperCase());
+        }
+        stringtoArray('HTML,CSS,JavaScript,Python');
+        getContentLength("Binhdeptraiquadi");
+        getUpperCaseName("Binh Nguyen");
+
+        var languages = ['JS', 'HTML', 'Python'];
+        console.log(languages.toString());
+        console.log(languages.join('-'));
+        console.log(languages.pop());
+        console.log(languages);
+        console.log(languages.push('React', 'C++', 'Dart'));
+        console.log(languages);
+        console.log(languages.shift());
+        console.log(languages.unshift('JavaScript'));
+        console.log(languages);
+        console.log(languages.splice(2, 3));
+
+        var joinWithCharacters = (array, charactor) => {
+            return array.join(charactor)
+        }
+
+        var familyName = ['Tuan', 'Hang', 'Lin', 'Lu', 'Chip', 'Sa'];
+        console.log(joinWithCharacters(familyName, '-'));
+
+        var getLastElement = (a) => {
+            return a.slice(-1);
+        }
+        console.log(getLastElement(familyName));
+
+        var getFirstElement = (b) => {
+            return b.slice(0, 1);
+        }
+        console.log(getFirstElement(familyName));
+        
+
+        var myInfo = {
+            name: 'Binh Nguyen',
+            id: 'E2001352',
+            college: 'VAMK'
+        }
+        delete myInfo.id;
+        console.log(myInfo)
+        
+        
+        
+    </script>
+</body>
+</html>

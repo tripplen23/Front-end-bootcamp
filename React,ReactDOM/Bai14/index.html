@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        1. document.createElement()
+        2. document.body.appendChild() : Thêm thằng con vào và render ra giao diện người dùng.
+        2_1. root.appendChild(h1);
+        3. console.dir:In đưới dạng object cho chúng ta nhìn                                    
+        4. innerText, id, className,style
+    -->
+    <div id="root"></div> <!-- truyền root -->
+    <script>
+        const root = document.getElementById('root');
+        const h1 = document.createElement('h1');
+
+        h1.innerText = "Hello, world!";
+        h1.id = "heading"; // Thêm id cho thẻ H1
+        h1.className = "heading class"; // Thêm class name
+        // h1.style.backgroundColor = "#11ad99"; // Thêm style background color
+        // h1.style = "color: purple; background-color: #11ad99; font-weight: bold; font-size: 36px";
+        Object.assign(h1.style, {
+            color: 'Green', 
+            backgroundColor: 'Yellow'
+        });
+
+        console.log(h1);
+
+        //document.body.appendChild(h1) // Hiển thị H1
+        root.appendChild(h1);
+
+    </script>
+</body>
+</html>

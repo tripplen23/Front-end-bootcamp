@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!--
+        Props
+        - React elements
+            - Sử dụng props giống như với attribute của thẻ HTML
+            - 2 props class, for => className, htmlFor
+            - Phải tuân theo quy ước có sẵn
+        - React components
+            - Sử dụng props giống như đối số cho Component
+            - Tự do đặt tên props
+                - Đặt theo camelCase
+                - *Có thể bao gồm dấu gạch ngang
+        -Chú ý:
+            - Prop "key" là prop đặc biệt
+            - Props cơ bản là đôi số của Component
+                => Props có thể là bất cứ kiểu dữ liệu gì
+            - Sử dụng destructuring
+    -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // PostItem.js
+        function PostItem(props) {
+            return (
+                <div className="post-item">
+                    <h2 className="post-title">{props.title}</h2>
+                    <p className="post-desc">{props.description}</p>    
+                    <p className="post-published">{props.publishedAt}</p>    
+                </div>
+            )
+        }
+
+        // App.js
+        function App() {
+            return (
+                <div id="wrapper">
+
+                    <PostItem 
+                        title = "1 C#(.NET)"
+                        description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quibusdam veniam, perspiciatis quam assumenda accusantium recusandae excepturi facere aperiam vero quidem neque, vel, esse eum ducimus ipsa labore officiis inventore!"
+                        publishedAt = "2015"
+                        data = {[ { a :1 }, { b :2 } ]}
+                    />
+
+                    <PostItem 
+                        title = "2 C#(.NET)"
+                        description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quibusdam veniam, perspiciatis quam assumenda accusantium recusandae excepturi facere aperiam vero quidem neque, vel, esse eum ducimus ipsa labore officiis inventore!"
+                        publishedAt = "2015"
+                    />
+
+                    <PostItem 
+                        title = "3 C#(.NET)"
+                        description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quibusdam veniam, perspiciatis quam assumenda accusantium recusandae excepturi facere aperiam vero quidem neque, vel, esse eum ducimus ipsa labore officiis inventore!"
+                        publishedAt = "2015"
+                    />
+                </div>
+            )
+        }
+    
+        // index.js
+        ReactDOM.render(<App/>, document.getElementById('root'));
+    
+    </script>
+</body>
+</html>

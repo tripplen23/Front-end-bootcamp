@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const root = document.querySelector('#root')  
+        const posts = [
+            {
+                image: "https://files.fullstack.edu.vn/f8-prod/blog_posts/5920/63a5a5ec0453c.png",
+                title: 'Bỏ túi 21 lệnh Git cơ bản + Cách nhớ, giúp newDev làm chủ Git quản lý tốt mã nguồn!',
+                description: 'Chắc hẳn nhiều bạn sau khi đã thành công tạo một website từ những kiến thức học được từ khóa học lập trình tại F8 và cảm thấy đó...',
+                published: '15 ngày trướ',
+            },
+            {
+                image: "https://files.fullstack.edu.vn/f8-prod/blog_posts/5920/63a5a5ec0453c.png",
+                title: 'Bỏ túi 21 lệnh Git cơ bản + Cách nhớ, giúp newDev làm chủ Git quản lý tốt mã nguồn!',
+                description: 'Chắc hẳn nhiều bạn sau khi đã thành công tạo một website từ những kiến thức học được từ khóa học lập trình tại F8 và cảm thấy đó...',
+                published: '15 ngày trướ',
+            },
+            {
+                image: "https://files.fullstack.edu.vn/f8-prod/blog_posts/5920/63a5a5ec0453c.png",
+                title: 'Bỏ túi 21 lệnh Git cơ bản + Cách nhớ, giúp newDev làm chủ Git quản lý tốt mã nguồn!',
+                description: 'Chắc hẳn nhiều bạn sau khi đã thành công tạo một website từ những kiến thức học được từ khóa học lập trình tại F8 và cảm thấy đó...',
+                published: '15 ngày trướ',
+            },
+        ]
+
+// use destructuring get value 
+    function PostItem({image, title, description, published}) {   
+        return (
+            <div className="post-item">
+                <img src={image} alt="Github"/>
+                <h2 className="post-title">{title}</h2>
+                <p className="post-desc">{description}</p>
+                <p className="post-published">{published}</p>            
+            </div>
+        )
+    }  
+
+// use spread to pass value to component
+    const app = (
+        <div className="posts-list">   
+            {posts.map(post =>  <PostItem {...post}/>)} 
+        </div>
+    )
+
+    ReactDOM.render(
+        app,
+        root
+    ) 
+    </script>
+</body>
+</html>

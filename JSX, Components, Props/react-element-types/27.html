@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!--
+        
+    -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        function Header() {
+            return (
+                <div className="header">Header</div>
+            )
+        }
+
+        function Content() {
+            return (
+                <div className="content">Content</div>
+            )
+        }
+
+        function Footer() {
+            return (
+                <div className="footer">Footer</div>
+            )
+        }
+
+        const app = (
+            <div>
+                <Header />
+                <Content />   
+                <Footer />   
+            </div>
+        )
+    
+    ReactDOM.render(app, document.getElementById('root'));
+
+    /*var domContainer = document.getElementById("container");
+    var courses = [{name:"Javascript"},{name:"PhP"},{name:"ReactJS"}];
+    var getCourse = 
+        courses.map((course,index)=><li className={"item-"+index} key={index}>{course.name}</li>)
+    var ul = <ul>{getCourse}</ul>;
+    var root = ReactDOM.createRoot(domContainer);
+    root.render(ul)*/
+    </script>
+</body>
+</html>

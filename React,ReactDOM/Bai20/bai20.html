@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18.0.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.0.0/umd/react-dom.production.min.js"></script> 
+</head>
+<body>
+        <!--
+        1. Github, NPMJS, UNPKG
+        2. Add React to website
+        3. Official docs 
+        4. React.createElement() -> React element
+        5. So sánh với document.createElement() -> DOM element
+        6. Thay dổi: id, className, style, ...
+        7. Thêm: text, HTML
+        8. Tạo:
+            <h1 title="Hello" class="heading">Hello guys!</h1>
+        9. Tạo:
+            <ul>
+                <li>Javascript</li>
+                <li>ReactJS</li>
+            </ul>
+        10. Tạo
+            <div class="post-item">
+                <h2 title="Học React tại F8">Học ReactJS</h2>
+                <p> Học ReactJS từ cơ bản đến nâng cao</p>
+            </div>
+    -->
+    <div id="root"></div>
+    <script>
+        const getRoot = document.getElementById('root')
+
+        const h1React = React.createElement(
+            'h1',
+            {
+                title: 'Hello',
+                className: 'heading'
+            },
+            "Hello guys!"
+        );
+        
+        const ulReact = React.createElement(
+            'ul',
+            {},
+            React.createElement(
+                'li',
+                {},
+                "Javascript"
+            ),
+            React.createElement(
+                'li',
+                {},
+                "ReactJS"
+            )
+        );
+
+        // Chữa bài
+        const divReact = React.createElement(
+            'div',
+            {className: 'post-item'},
+            React.createElement('h2', {title:"Học React tại F8"}, 'Học ReactJS'),
+            React.createElement('p', {} , 'Học ReactJS từ cơ bản đến nâng cao'),
+        );
+
+        ReactDOM.render(h1React, getRoot)
+        ReactDOM.render(ulReact, getRoot)
+        ReactDOM.render(divReact, getRoot)
+
+    </script>
+</body>
+</html>

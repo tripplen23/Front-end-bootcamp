@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+    <script crossorigin src=
+    "https://unpkg.com/react@17.0.2/umd/react.production.min.js">
+    </script>
+</head>
+<body>
+    <h1>Add React to website</h1>
+    <!--
+        1. Github, NPMJS, UNPKG
+        2. Add React to website
+        3. Official docs 
+        4. React.createElement() -> React element
+        5. So sánh với document.createElement() -> DOM element
+        6. Thay dổi: id, className, style, ...
+        7. Thêm: text, HTML
+        8. Tạo:
+            <h1 title="Hello" class="heading">Hello guys!</h1>
+        9. Tạo:
+            <ul>
+                <li>Javascript</li>
+                <li>ReactJS</li>
+            </ul>
+        10. Tạo
+            <div class="post-item">
+                <h2 title="Học React tại F8">Học ReactJS</h2>
+                <p> Học ReactJS từ cơ bản đến nâng cao</p>
+            </div>
+    -->
+
+
+    <script>
+        //DOM
+        const h1DOM = document.createElement('h1');
+        h1DOM.innerHTML = 'Hello guys!';
+        h1DOM.title = 'Hello';
+        h1DOM.className = 'heading';
+        
+        document.body.appendChild(h1DOM);
+
+        //React
+        //React.createElement(type, props, children, n)
+        const h1React = React.createElement('h1',{ //type
+            title:'Hello',
+            className: 'heading', //prob
+            
+        }, 'Hello guys!!'); // đối số thứ 3 là children, thay thế cho innerText
+
+        
+
+        // Tạo UL LI bằng DOM
+
+        const ulDOM = document.createElement('ul');
+        ulDOM.id = 'ul-id'
+        ulDOM.style.color = 'red';
+ 
+        const liDOM = document.createElement('li');
+        liDOM.innerText = 'Javascript'
+        liDOM.id = 'li-1'
+        
+        const liDOM2 = document.createElement('li');
+        liDOM2.innerText = 'ReactJS'
+
+        ulDOM.appendChild(liDOM);
+        ulDOM.appendChild(liDOM2);
+
+        document.body.appendChild(ulDOM);
+        // Tạo UL LI bằng React
+
+        const ulReact = React.createElement(
+            'ul',
+            {
+                id: 'ul-id',
+                style: 'red'
+            },
+            React.createElement('li', {id: 'li-1'}, 'Javascript'),
+            React.createElement('li', null, 'ReactJS'),
+        )
+        
+
+        console.dir(h1DOM);
+        console.log(h1React);
+        console.log(ulReact);
+        console.dir(ulDOM);
+        console.log(React.version);
+
+    </script>
+
+
+    <script>
+
+    </script>
+</body>
+</html>

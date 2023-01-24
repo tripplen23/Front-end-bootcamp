@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!--
+        Chữa bài tập: Render list khóa học
+
+        * Câu hỏi thường gặp:
+            - Tại sao khi code thuần dùng map phải join()...
+            - Gặp lỗi khi render từ mảng (prop "key")
+            - Không render được 2 elements cùng lúc
+    -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const reactCourse = 'ReactJS F8'
+
+        const courses = [
+            {
+                name: 'HTML, CSS'
+            },
+            {
+                name: 'Responsive Web Design'
+            },
+            {
+                name: 'ReactJS'
+            }
+        ];
+        const jsx = (
+            <ul>
+                <React.Fragment>
+                    {courses.map((course, index) =>
+                        <li key={index}>{course.name}</li>    
+                    )}
+                    <li>{reactCourse}</li>
+                </React.Fragment>
+            </ul>
+        );
+
+    console.log(jsx);
+    
+    ReactDOM.render(jsx, document.getElementById('root'));
+
+    /*var domContainer = document.getElementById("container");
+    var courses = [{name:"Javascript"},{name:"PhP"},{name:"ReactJS"}];
+    var getCourse = 
+        courses.map((course,index)=><li className={"item-"+index} key={index}>{course.name}</li>)
+    var ul = <ul>{getCourse}</ul>;
+    var root = ReactDOM.createRoot(domContainer);
+    root.render(ul)*/
+    </script>
+</body>
+</html>
