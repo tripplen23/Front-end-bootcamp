@@ -1,2 +1,3 @@
 # Front-end-bootcamp
-The place of my study as well as several front end assignment.
+Update it on Git for more attention to my study path. Good luck have fun
+Code lover <3
