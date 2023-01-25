@@ -11,26 +11,12 @@
 </head>
 <body>
     <!--
-        Props
-        - React elements
-            - Sử dụng props giống như với attribute của thẻ HTML
-            - 2 props class, for => className, htmlFor
-            - Phải tuân theo quy ước có sẵn
-        - React components
-            - Sử dụng props giống như đối số cho Component
-            - Tự do đặt tên props
-                - Đặt theo camelCase
-                - *Có thể bao gồm dấu gạch ngang
-        -Chú ý:
-            - Prop "key" là prop đặc biệt
-            - Props cơ bản là đôi số của Component
-                => Props có thể là bất cứ kiểu dữ liệu gì
-            - Sử dụng destructuring
+      
     -->
     <div id="root"></div>
 
     <script type="text/babel">
-        const course = [
+        const courses = [
             {
             id: 15,
             title: "HTML CSS Pro",
@@ -114,27 +100,39 @@
             }
         ]
 
-        // CourseItem
-        function CourseItem(course) {   
-        return (
-            <div className="post-item">
-                <img src={course.image} alt="Github"/>
-                <h2 className="post-title">{course.title}</h2>
-                <p className="post-desc">{course.description}</p>
-                <p className="post-published">{course.published_at}</p>            
+
+        // UI Component
+        const CourseItem = ({ course, onClick }) => (
+            <div>
+                <h2 onClick={() => onClick(course)}>{course.title}</h2>
+                <img src={course.image} />
+                <p>{course.description}</p>
+                <p>{course.students_count}</p>            
             </div>
         )
-    }  
         
+        // Container
         function App () {
+
+            // useCallback
+            const handleClick = (course) => {
+                console.log(course.title)
+            }
+
             return (
-                <div className="wrapped-item">
-                    <CourseItem />    
+                <div id="wrapper">
+                    {courses.map(course => (
+                        <CourseItem 
+                            key={course.id}
+                            course={course}
+                            onClick={handleClick}
+                        />
+                    ))}
                 </div>
             )
         }
 
-        ReactDom.render(<App />, document.getElementById("root"))
+        ReactDOM.render(<App />, document.getElementById("root"))
 
     </script>
 </body>

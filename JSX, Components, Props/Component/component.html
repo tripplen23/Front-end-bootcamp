@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!--
+      * Components do chúng ta tạo phải viết hoa 
+      * chữ cái đâu (PascalCase)
+      --------------------------
+      * Booleans, null & undefined không dược render
+      --------------------------
+      * Kết hợp toán tử logic để render theo điều kiện
+    -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const Form = {
+            Input() {
+                return <input />
+            },
+            Checkbox(){
+                return <input type="checkbox" />
+            }
+        }
+        
+        // Container
+        function App () {
+
+            const type ='Input';
+            const Component = Form[type]
+
+            return (
+                <div id="wrapper">
+                    <Component />
+                </div>
+            )
+        }
+
+        ReactDOM.render(<App />, document.getElementById("root"))
+
+    </script>
+</body>
+</html>
